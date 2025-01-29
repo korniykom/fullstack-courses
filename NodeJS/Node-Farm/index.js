@@ -1,6 +1,10 @@
 import fs from "fs";
 import http from "http";
-import url from "url";
+import url, { fileURLToPath } from "url";
+import path from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /*FILES*/
 
@@ -25,6 +29,9 @@ import url from "url";
 // console.log("Will read the file!");
 
 /*SERVER*/
+const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, "UTF-8");
+const dataObj = JSON.parse(data);
+
 const server = http.createServer((req, res) => {
   const pathName = req.url;
 
@@ -32,6 +39,11 @@ const server = http.createServer((req, res) => {
     res.end("This is the overview");
   } else if (pathName === "/product") {
     res.end("This is the product");
+  } else if (pathName === "/api") {
+    res.writeHead(200, {
+      "Content-type": "application/json",
+    });
+    res.end(data);
   } else {
     res.writeHead(404, {
       "Content-type": "text/html",
