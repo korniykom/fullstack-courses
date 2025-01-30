@@ -1,6 +1,10 @@
+* {
+}
+
 body {
   font-family: sans-serif;
   color: #444;
+  border-top: 10px solid #1098ad;
 }
 
 h1,
@@ -94,3 +98,19 @@ a:active {
   background-color: gold;
   font-style: italic;
 }
+/* 
+#copyright {
+  color: red;
+}
+
+.copyright {
+  color: blue;
+}
+
+.text {
+  color: yellow;
+}
+
+footer {
+  color: green !important;
+} */
