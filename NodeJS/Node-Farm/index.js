@@ -29,21 +29,61 @@ const __dirname = path.dirname(__filename);
 // console.log("Will read the file!");
 
 /*SERVER*/
-const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, "UTF-8");
+
+const replaceTemplate = (template, product) => {
+  let output = template.replace(/{%PRODUCTNAME%}/g, product.productName);
+  output = output.replace(/{%IMAGE%}/g, product.image);
+  output = output.replace(/{%PRICE%}/g, product.price);
+  output = output.replace(/{%NUTRIENTS%}/g, product.nutrients);
+  output = output.replace(/{%QUANTITY%}/g, product.quantity);
+  output = output.replace(/{%ID%}/g, product.id);
+
+  if (!product.organic) {
+    output = output.replace(/{%NOT_ORGANIC%}/g, "not-organic");
+  }
+  return output;
+};
+
+const tempOverview = fs
+  .readFileSync(`${__dirname}/templates/template-overview.html`)
+  .toString();
+const tempCard = fs
+  .readFileSync(`${__dirname}/templates/template-card.html`)
+  .toString();
+const tempProduct = fs
+  .readFileSync(`${__dirname}/templates/template-product.html`)
+  .toString();
+const data = fs
+  .readFileSync(`${__dirname}/dev-data/data.json`, "UTF-8")
+  .toString();
 const dataObj = JSON.parse(data);
 
 const server = http.createServer((req, res) => {
   const pathName = req.url;
 
+  //Overview page
   if (pathName === "/" || pathName === "/overview") {
-    res.end("This is the overview");
+    res.writeHead(200, { "Content-type": "text/html" });
+    const cardsHtml = dataObj
+      .map((el) => {
+        return replaceTemplate(tempCard, el);
+      })
+      .join("");
+    const output = tempOverview.replace("{%PRODUCT_CARDS%}", cardsHtml);
+    res.end(output);
+
+    //Product page
   } else if (pathName === "/product") {
     res.end("This is the product");
+
+    //API
   } else if (pathName === "/api") {
     res.writeHead(200, {
       "Content-type": "application/json",
     });
     res.end(data);
+
+    //Not found
   } else {
     res.writeHead(404, {
       "Content-type": "text/html",
