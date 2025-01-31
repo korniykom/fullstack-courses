@@ -3,6 +3,7 @@ import http from "http";
 import url, { fileURLToPath } from "url";
 import path from "path";
 import replaceTemplate from "./modules/replaceTemplate.js";
+import slugify from "slugify";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -43,6 +44,9 @@ const data = fs
   .readFileSync(`${__dirname}/dev-data/data.json`, "UTF-8")
   .toString();
 const dataObj = JSON.parse(data);
+
+const slugs = dataObj.map((el) => slugify(el.productName, { lower: true }));
+console.log(slugs);
 
 const server = http.createServer((req, res) => {
   const { query, pathname } = url.parse(req.url, true);
