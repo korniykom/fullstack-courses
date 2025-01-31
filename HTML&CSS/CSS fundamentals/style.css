@@ -9,6 +9,11 @@ body {
   border-top: 10px solid #1098ad;
 }
 
+main {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 h1,
 h2,
 h3 {
@@ -90,6 +95,7 @@ article {
   padding-right: 40px; */
   padding: 20px 40px;
   margin-bottom: 60px;
+  height: 80px;
 }
 
 .post-header {
@@ -101,6 +107,7 @@ aside {
   border-top: 5px solid #1098ad;
   border-bottom: 5px solid #1098ad;
   padding: 50px 0;
+  max-width: 500px;
 }
 
 li:first-child {
@@ -129,6 +136,11 @@ a:hover {
 a:active {
   background-color: gold;
   font-style: italic;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
 }
 /* 
 #copyright {
