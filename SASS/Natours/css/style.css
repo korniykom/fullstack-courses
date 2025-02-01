@@ -51,6 +51,7 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
@@ -63,6 +64,11 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 0.5s;
+  /* animation-delay: 0.3s; */
+  animation-timing-function: ease-out;
 }
 
 .heading-primary-sub {
@@ -70,4 +76,107 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  animation-name: moveInRight;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.button:link,
+.button:visited {
+  margin-top: 48px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 10rem;
+  transition-property: transform;
+  transition-duration: 0.17s;
+  position: relative;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.17);
+}
+.button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.17);
+}
+
+.button-white:link,
+.button-white:visited {
+  background-color: #fff;
+  color: #777;
+}
+
+.button::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  z-index: -1;
+  transition-duration: 0.19s;
+}
+.button-white::after {
+  background-color: #fff;
+  top: 0;
+  left: 0;
+}
+.button:hover::after {
+  transform: scale(1.4);
+  opacity: 0;
+}
+
+.button-animated {
+  animation-timing-function: ease-out;
+  animation-name: moveInButton;
+  animation-duration: 0.4s;
+}
+
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translatey(20px);
+  }
+  80% {
+    transform: translatey(-8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
