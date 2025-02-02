@@ -6,20 +6,22 @@
     <title>The Basic Language of the Web: HTML</title>
     <style>
       h1 {
-        color: aqua;
+        /* color: aqua; */
       }
     </style>
   </head>
   <body>
     <main>
       <header class="main-header">
-        <h1 style="color: blue">📘 The Code Magazine</h1>
+        <h1>📘 The Code Magazine</h1>
         <nav>
           <a href="blog.html">Blog</a>
           <a href="#">Challenges</a>
           <a href="#">Flexbox</a>
           <a href="#">Grid</a>
         </nav>
+
+        <div class="clear"></div>
       </header>
 
       <article>
@@ -30,8 +32,9 @@
             alt="Author Avatar"
             width="50"
             height="50"
+            class="author-img"
           />
-          <p id="author">
+          <p id="author" class="author">
             Posted by <strong>Laura Jones</strong> on Monday, June 21st 2027
           </p>
           <img

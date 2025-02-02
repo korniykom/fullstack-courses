@@ -11,7 +11,7 @@ body {
 }
 
 main {
-  max-width: 700px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -96,7 +96,6 @@ article {
   padding-right: 40px; */
   padding: 20px 40px;
   margin-bottom: 60px;
-  height: 80px;
 }
 
 .post-header {
@@ -181,4 +180,41 @@ h2::after {
   padding: 5px 10px;
   top: 0;
   right: 0;
+}
+
+/*FLOATS*/
+.author {
+  float: left;
+  padding: 10px 20px;
+}
+
+.author-img {
+  float: left;
+}
+
+h1 {
+  float: left;
+  color: #1098ad;
+}
+h1::first-letter {
+  font-style: normal;
+}
+nav {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+article {
+  width: 65%;
+  float: left;
+}
+aside {
+  width: 30%;
+  float: right;
+}
+footer {
+  clear: both;
 }
