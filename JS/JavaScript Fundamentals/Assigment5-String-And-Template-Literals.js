@@ -1,3 +1,5 @@
+// 1. Recreate the description variable from the last assignment, this time using the template literal syntax.
+
 const country = "Ukraine";
 const continent = "Europe";
 let population = 38_507_467;
