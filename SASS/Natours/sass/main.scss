@@ -1,3 +1,9 @@
+$color-primary: #7ed56f;
+$color-primary-light: #55c57a;
+$color-primary-dark: #28b485;
+$color-grey-dark: #777;
+$color-white: #fff;
+$color-black: #000;
 *::after,
 *::before {
   margin: 0;
@@ -10,14 +16,19 @@ body {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.7;
-  color: #777;
+  color: $color-grey-dark;
   padding: 1.875rem;
   box-sizing: border-box;
 }
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
   background-color: cover();
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -43,7 +54,7 @@ body {
 }
 
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
 }
 
@@ -52,6 +63,7 @@ body {
   font-size: 3.75rem;
   font-weight: 400;
   letter-spacing: 2.1875rem;
+
   animation-name: moveInLeft;
   animation-duration: 0.5s;
   /* animation-delay: 0.3s; */
@@ -63,6 +75,7 @@ body {
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 1.875rem;
+
   animation-name: moveInRight;
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
@@ -76,11 +89,13 @@ body {
   80% {
     transform: translateX(0.5rem);
   }
+
   100% {
     opacity: 1;
     transform: translate(0);
   }
 }
+
 @keyframes moveInRight {
   0% {
     opacity: 0;
@@ -89,11 +104,13 @@ body {
   80% {
     transform: translateX(-0.5rem);
   }
+
   100% {
     opacity: 1;
     transform: translate(0);
   }
 }
+
 .button:link,
 .button:visited {
   margin-top: 48px;
@@ -109,18 +126,17 @@ body {
 
 .button:hover {
   transform: translateY(-0.1875rem);
-  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.17);
+  box-shadow: 0 0.625rem 1.25rem rgba($color-black, 0.17);
 }
-
 .button:active {
   transform: translateY(-1px);
-  box-shadow: 0 0.375rem 0.625rem rgba(0, 0, 0, 0.17);
+  box-shadow: 0 0.375rem 0.625rem rgba($color-black, 0.17);
 }
 
 .button--white:link,
 .button--white:visited {
-  background-color: #fff;
-  color: #777;
+  background-color: $color-white;
+  color: $color-grey-dark;
 }
 
 .button::after {
@@ -133,13 +149,11 @@ body {
   z-index: -1;
   transition-duration: 0.19s;
 }
-
 .button--white::after {
-  background-color: #fff;
+  background-color: $color-white;
   top: 0;
   left: 0;
 }
-
 .button:hover::after {
   transform: scale(1.4);
   opacity: 0;
@@ -159,10 +173,9 @@ body {
   80% {
     transform: translatey(-0.5rem);
   }
+
   100% {
     opacity: 1;
     transform: translate(0);
   }
 }
-
-/*# sourceMappingURL=style.css.map */
