@@ -466,5 +466,9 @@
         "day": 5
       }
     ]
-  }
+  },
+  { "id": null, "name": "test tour", "duration": 10, "difficulty": "easy" },
+  { "id": 1, "name": "test tour", "duration": 10, "difficulty": "easy" },
+  { "id": 2, "name": "test tour", "duration": 10, "difficulty": "easy" },
+  { "id": 3, "name": "test tour", "duration": 10, "difficulty": "easy" }
 ]
