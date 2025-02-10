@@ -3,12 +3,10 @@
   max-width: $grid-width;
   display: grid;
   grid-template-columns: repeat(2, calc((100% - $gutter-horizontal) / 2));
-  background-color: aquamarine;
   justify-content: space-between;
   margin-bottom: $gutter-vertical;
   row-gap: $gutter-vertical;
   [class^="col-"] {
-    background-color: pink;
   }
 }
 
@@ -17,12 +15,10 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, calc((100% - 2 * $gutter-horizontal) / 3));
-  background-color: aqua;
   row-gap: $gutter-vertical;
   justify-content: space-between;
   margin-bottom: $gutter-vertical;
   [class^="col-"] {
-    background-color: pink;
   }
 }
 
@@ -35,7 +31,6 @@
   margin-bottom: $gutter-vertical;
 
   [class^="col-"] {
-    background-color: pink;
   }
 }
 
@@ -44,12 +39,10 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, calc((100% - 3 * $gutter-horizontal) / 4));
-  background-color: aqua;
   column-gap: $gutter-horizontal;
   justify-content: space-between;
   margin-bottom: $gutter-vertical;
   [class^="col-"] {
-    background-color: pink;
   }
 }
 
@@ -58,12 +51,10 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
-  background-color: aqua;
   column-gap: $gutter-horizontal;
   justify-content: space-between;
   margin-bottom: $gutter-vertical;
   [class^="col-"] {
-    background-color: pink;
   }
 }
 
@@ -75,6 +66,5 @@
   column-gap: $gutter-horizontal;
 
   [class^="col-"] {
-    background-color: pink;
   }
 }
