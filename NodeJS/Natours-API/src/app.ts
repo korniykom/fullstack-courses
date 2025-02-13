@@ -1,9 +1,15 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import { read, readFileSync, writeFile } from 'fs';
 import path from 'path';
 
 const app = express();
 app.use(express.json());
+
+app.use((req: Request, res: Response, next: NextFunction) => {
+  console.log('Hello from the middleware');
+  (req as any).requestTime = new Date().toISOString();
+  next();
+});
 
 const tours = JSON.parse(
   readFileSync(
@@ -12,21 +18,20 @@ const tours = JSON.parse(
   )
 );
 
-console.log(tours);
-
-app.get('/api/v1/tours', (req: Request, res: Response) => {
+const getAllTours = (req: Request, res: Response) => {
   res.status(200).json({ status: 'success', data: { tours: tours } });
-});
+};
 
-app.get('/api/v1/tours/:id', (req: Request, res: Response) => {
+const getTourById = (req: Request, res: Response) => {
+  console.log((req as any).requestTime);
   const tour = tours.find((element: any) => element.id === +req.params.id);
   res.status(200).json({
     status: 'success',
     data: { tour },
   });
-});
+};
 
-app.post('/api/v1/tours', (req: Request, res: Response) => {
+const postTour = (req: Request, res: Response) => {
   const newId = tours[tours.length - 1].id + 1;
   const newTour = Object.assign({ id: newId }, req.body);
 
@@ -43,7 +48,30 @@ app.post('/api/v1/tours', (req: Request, res: Response) => {
       });
     }
   );
-});
+};
+
+const patchTourById = (req: Request, res: Response) => {
+  res.status(200).json({
+    status: 'success',
+    data: {
+      tour: '<Updated tour here>',
+    },
+  });
+};
+
+const deleteTourById = (req: Request, res: Response) => {
+  res.status(204).json({
+    status: 'success',
+    data: null,
+  });
+};
+
+app.route('/api/v1/tours').get(getAllTours).post(postTour);
+app
+  .route('/api/v1/tours/:id')
+  .get(getTourById)
+  .patch(patchTourById)
+  .delete(deleteTourById);
 const port: number = 8000;
 app.listen(port, () => {
   console.log(`Running on port ${port}...`);
