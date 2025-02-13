@@ -1,8 +1,11 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { read, readFileSync, writeFile } from 'fs';
+import { readFileSync, writeFile } from 'fs';
 import path from 'path';
+import morgan from 'morgan';
 
 const app = express();
+
+app.use(morgan('dev'));
 app.use(express.json());
 
 app.use((req: Request, res: Response, next: NextFunction) => {
