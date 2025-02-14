@@ -1,12 +1,33 @@
 @use "../abstracts/variables" as *;
 
 .header {
+  align-self: stretch;
   color: $color-primary;
   text-transform: uppercase;
   text-align: center;
+  display: relative;
 
   &__text {
     font-size: $font-large;
     font-weight: 300;
+    position: relative;
+
+    &::after,
+    &::before {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 2rem;
+      height: 0.2rem;
+      background-color: $color-primary;
+      top: calc(50% - 1px);
+    }
+
+    &::before {
+      left: 0;
+    }
+    &::after {
+      right: 0;
+    }
   }
 }

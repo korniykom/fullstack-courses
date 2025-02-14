@@ -9,9 +9,7 @@
 }
 
 body {
-  margin: auto;
-  max-width: 50rem;
-  min-height: 100vh;
+  padding: 2rem;
 }
 
 body {
@@ -19,13 +17,59 @@ body {
 }
 
 .header {
+  align-self: stretch;
   color: #edc84b;
   text-transform: uppercase;
   text-align: center;
+  display: relative;
 }
 .header__text {
   font-size: 3.25rem;
   font-weight: 300;
+  position: relative;
+}
+.header__text::after, .header__text::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 2rem;
+  height: 0.2rem;
+  background-color: #edc84b;
+  top: calc(50% - 1px);
+}
+.header__text::before {
+  left: 0;
+}
+.header__text::after {
+  right: 0;
+}
+
+.menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menu__header {
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 2px solid #252525;
+  border-bottom: 2px solid #252525;
+  font-size: 1.5rem;
+  padding: 0.6rem 0;
+}
+.menu__description {
+  text-align: center;
+}
+
+.container {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
 }
 
 /*# sourceMappingURL=App.css.map */
