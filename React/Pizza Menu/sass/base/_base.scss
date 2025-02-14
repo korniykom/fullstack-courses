@@ -1,0 +1,15 @@
+@use "../abstracts/variables" as *;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $color-grey-light;
+}
+
+body {
+  margin: auto;
+  max-width: $page-width;
+  min-height: 100vh;
+}

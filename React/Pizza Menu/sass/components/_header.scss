@@ -1,0 +1,12 @@
+@use "../abstracts/variables" as *;
+
+.header {
+  color: $color-primary;
+  text-transform: uppercase;
+  text-align: center;
+
+  &__text {
+    font-size: $font-large;
+    font-weight: 300;
+  }
+}
