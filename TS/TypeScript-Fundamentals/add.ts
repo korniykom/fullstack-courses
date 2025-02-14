@@ -1,16 +1,10 @@
-function add(n1: number, n2: number, showResult: boolean, phrase: string) {
-  const result = n1 + n2;
-
-  if (showResult) {
-    console.log(`${phrase} ${result}`);
+function add(input1: number | string, input2: number | string) {
+  if (typeof input1 === "number" && typeof input2 === "number") {
+    return input1 + input2;
   } else {
-    return result;
+    return input1.toString() + input2.toString();
   }
 }
 
-const number1 = 5;
-const number2 = 1;
-const printResult = true;
-const resultPhrase = "Result is:";
-
-add(number1, number2, printResult, resultPhrase);
+console.log(add(1, 2));
+console.log("a", "b");
