@@ -1,6 +1,6 @@
 import path from 'path';
 import { readFileSync, writeFile } from 'fs';
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 const tours = JSON.parse(
   readFileSync(
     path.join(process.cwd(), 'dev-data', 'data', 'tours.json'),
@@ -54,4 +54,18 @@ export function deleteTourById(req: Request, res: Response) {
     status: 'success',
     data: null,
   });
+}
+
+export function checkBody(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): any {
+  if (!req.body.name || !req.body.price) {
+    return res.status(400).json({
+      status: 'failed',
+      message: 'Missing name or price',
+    });
+  }
+  next();
 }
