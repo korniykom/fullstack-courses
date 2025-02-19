@@ -1,0 +1,114 @@
+.card {
+  perspective: 100rem;
+  position: relative;
+  height: 34rem;
+
+  &__side {
+    width: 100%;
+    transition: transform 0.46s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    height: 100%;
+    border-radius: 3px;
+    box-shadow: 0 1rem 2rem ($color-black, 0.15);
+    overflow: hidden;
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(-180deg);
+      &-1 {
+        background-image: linear-gradient(
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+      &-2 {
+        background-image: linear-gradient(
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+      &-3 {
+        background-image: linear-gradient(
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+
+  &__picture {
+    background-size: cover;
+    height: 15rem;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    &--1 {
+      background-image: url(/img/nat-5.jpg),
+        linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      background-blend-mode: soft-light;
+    }
+
+    &--2 {
+      background-image: url(/img/hat-5.jpg);
+    }
+
+    &--3 {
+      background-image: url(/img/hat-5.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 1.6rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $color-white;
+    position: absolute;
+    top: 6rem;
+    right: 1.2rem;
+    text-align: right;
+    width: 65%;
+  }
+  &__heading-span {
+    padding: 0.6rem 1rem;
+    box-decoration-break: clone;
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.85),
+        rgba($color-primary-dark, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    ul {
+      list-style: none;
+      width: 80%;
+      li {
+        text-align: center;
+        font-size: 1rem;
+        padding: 0.7rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+}
