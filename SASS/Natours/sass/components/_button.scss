@@ -39,6 +39,20 @@
     }
   }
 
+  &--green {
+    &:link,
+    &:visited {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+
+    &::after {
+      background-color: $color-primary;
+      top: 0;
+      left: 0;
+    }
+  }
+
   &::after {
     content: "";
     display: inline-block;

@@ -65,11 +65,23 @@
     }
 
     &--2 {
-      background-image: url(/img/hat-5.jpg);
+      background-image: url(/img/nat-6.jpg),
+        linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      background-blend-mode: soft-light;
     }
 
     &--3 {
-      background-image: url(/img/hat-5.jpg);
+      background-image: url(/img/nat-7.jpg),
+        linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      background-blend-mode: soft-light;
     }
   }
 
@@ -94,6 +106,20 @@
         rgba($color-primary-dark, 0.85)
       );
     }
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
+      );
+    }
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.85),
+        rgba($color-tertiary-dark, 0.85)
+      );
+    }
   }
 
   &__details {
@@ -110,5 +136,32 @@
         }
       }
     }
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% -50%);
+  }
+  &__price-box {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: $color-white;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 4rem;
+    font-weight: 200;
   }
 }
