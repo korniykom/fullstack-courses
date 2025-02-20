@@ -4,7 +4,7 @@
   "description": "Learning node, express and mongoDB",
   "license": "ISC",
   "author": "Maksym Korniiko",
-  "type": "commonjs",
+  "type": "module",
   "main": "app.ts",
   "scripts": {
     "start": "node dist/server.js",

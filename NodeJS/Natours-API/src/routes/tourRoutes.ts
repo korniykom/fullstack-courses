@@ -7,7 +7,7 @@ import {
   patchTourById,
   deleteTourById,
   checkBody,
-} from '../controllers/tourController';
+} from '../controllers/tourController.js';
 
 const router = express.Router();
 
