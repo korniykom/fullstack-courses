@@ -42,7 +42,10 @@ web_modules/
 .next
 out
 .nuxt
-dist
+dist/*
+!dist/public/
+!dist/public/**
+
 .cache/
 
 .vuepress/dist
