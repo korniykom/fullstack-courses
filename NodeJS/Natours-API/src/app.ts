@@ -11,7 +11,10 @@ const __dirname = dirname(__filename);
 
 export const app = express();
 
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
 app.use((req: Request, res: Response, next: NextFunction) => {
