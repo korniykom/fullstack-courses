@@ -424,6 +424,7 @@ body {
   transform: skewX(12deg);
 }
 .story__shape {
+  position: relative;
   width: 10rem;
   height: 10rem;
   float: left;
@@ -434,9 +435,30 @@ body {
 }
 .story__image {
   height: 100%;
+  transform: translateX(-2rem) scale(1.4);
+  transition: all 0.3s;
 }
 .story__text {
   transform: skewX(12deg);
+}
+.story__caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0;
+  transition: transform 0.26s;
+}
+.story:hover .story__caption {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.story:hover .story__image {
+  transform: translateX(-2rem) scale(1.2);
+  filter: blur(3px) brightness(80%);
 }
 
 .header {

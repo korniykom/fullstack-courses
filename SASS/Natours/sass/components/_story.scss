@@ -14,6 +14,7 @@
   }
 
   &__shape {
+    position: relative;
     width: 10rem;
     height: 10rem;
     float: left;
@@ -25,9 +26,33 @@
 
   &__image {
     height: 100%;
+    transform: translateX(-2rem) scale(1.4);
+    transition: all 0.3s;
   }
 
   &__text {
     transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0;
+    transition: transform 0.26s;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__image {
+    transform: translateX(-2rem) scale(1.2);
+    filter: blur(3px) brightness(80%);
   }
 }
